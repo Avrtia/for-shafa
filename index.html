@@ -1219,11 +1219,16 @@
     }
 
     function openExperience() {
-      $("#landingScreen").classList.add("hidden");
-      document.body.classList.remove("no-scroll");
-      launchConfetti(36);
-      showToast("Opened. Now scroll slowly.");
-    }
+  $("#landingScreen").classList.add("hidden");
+  document.body.classList.remove("no-scroll");
+  launchConfetti(36);
+  showToast("Opened. Now scroll slowly.");
+
+  // Start music after user interaction, mobile-browser friendly
+  if (!state.isMusicPlaying) {
+    toggleMusic();
+  }
+}
 
     function createFloatingDecor() {
       const layer = $("#floatingLayer");
